@@ -10,7 +10,7 @@ export default function userInfo(state = initialState, action) {
   const { type, payload, error } = action;
 
   switch (type) {
-    case types.SET_USER:
+    case types.SET_USER_INFO:
       return {
         isPending: false,
         isError: false,

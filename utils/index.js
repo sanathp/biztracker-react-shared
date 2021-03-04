@@ -1,7 +1,5 @@
 import React from 'react';
 import moment from 'moment';
-import { Badge } from 'react-native-paper';
-import {Dimensions , Platform} from 'react-native';
 
 export const getStatusText = (status) => {
   switch (status) {
@@ -64,16 +62,6 @@ export const getLeadSourceText = (source) => {
     }
 };
 
-export const isIphoneXorAbove = () => {
-  const dimen = Dimensions.get('window');
-  return (
-    Platform.OS === 'ios' &&
-    !Platform.isPad &&
-    !Platform.isTVOS &&
-    ((dimen.height === 812 || dimen.width === 812) || (dimen.height === 896 || dimen.width === 896))
-  );
-}
-
 export const uuidv4 = () => {
   return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
     var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
@@ -106,45 +94,45 @@ export const isValidEmail = (email) => {
   return re.test(String(email).toLowerCase());
 }
 
-export const getBadge = (status) => {
-  let style ={
-    width: 60,
-    top: 5,
-    fontSize: 14,
-    position: 'absolute',
-    backgroundColor: 'black'
-  };
-  if (status == "NEW") {
-    style.backgroundColor = '#CFBBF6';
-  } else if (status == "FOLLOW_UP") {
-    style.backgroundColor = '#FADB56';
-    style.width = 100
-  } else if (status == "SITE_VISIT") {
-      //TODO: deicide colors for all
-      style.backgroundColor = '#FADB56';
-      style.width = 100
-  } else if (status == "SITE_VISIT_DONE") {
-    //TODO: deicide colors for all
-    style.backgroundColor = '#FADB56';
-    style.width = 120
-  } else if (status == "CLOSED") {
-    //TODO: deicide colors for all
-    style.backgroundColor = '#FADB56';
-    style.width = 80
-  } else if (status == "DEAD") {
-    //TODO: deicide colors for all
-    style.backgroundColor = '#FADB56';
-    style.width = 100
-  } else {
-    //TODO: handle other
-    return null;
-  }
-  return(
-    <Badge size={24} style={style}>
-        {getStatusText(status)}
-    </Badge>
-  );
-}
+// export const getBadge = (status) => {
+//   let style ={
+//     width: 60,
+//     top: 5,
+//     fontSize: 14,
+//     position: 'absolute',
+//     backgroundColor: 'black'
+//   };
+//   if (status == "NEW") {
+//     style.backgroundColor = '#CFBBF6';
+//   } else if (status == "FOLLOW_UP") {
+//     style.backgroundColor = '#FADB56';
+//     style.width = 100
+//   } else if (status == "SITE_VISIT") {
+//       //TODO: deicide colors for all
+//       style.backgroundColor = '#FADB56';
+//       style.width = 100
+//   } else if (status == "SITE_VISIT_DONE") {
+//     //TODO: deicide colors for all
+//     style.backgroundColor = '#FADB56';
+//     style.width = 120
+//   } else if (status == "CLOSED") {
+//     //TODO: deicide colors for all
+//     style.backgroundColor = '#FADB56';
+//     style.width = 80
+//   } else if (status == "DEAD") {
+//     //TODO: deicide colors for all
+//     style.backgroundColor = '#FADB56';
+//     style.width = 100
+//   } else {
+//     //TODO: handle other
+//     return null;
+//   }
+//   return(
+//     <Badge size={24} style={style}>
+//         {getStatusText(status)}
+//     </Badge>
+//   );
+// }
 
 export const getCaption = (lead) =>{
   if (lead.status == "NEW") {

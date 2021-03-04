@@ -25,7 +25,6 @@ import {
   getUsersErrorAction
 } from '../actions/usersActions';
 import { getProjectsPendingAction, getProjectsSuccessAction, getProjectsErrorAction } from '../actions/projectsActions';
-import moment from 'moment';
 import { removeWhiteSpaces } from '../utils';
 
 function filterDataByStatus(data) {
