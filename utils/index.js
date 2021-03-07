@@ -94,45 +94,6 @@ export const isValidEmail = (email) => {
   return re.test(String(email).toLowerCase());
 }
 
-// export const getBadge = (status) => {
-//   let style ={
-//     width: 60,
-//     top: 5,
-//     fontSize: 14,
-//     position: 'absolute',
-//     backgroundColor: 'black'
-//   };
-//   if (status == "NEW") {
-//     style.backgroundColor = '#CFBBF6';
-//   } else if (status == "FOLLOW_UP") {
-//     style.backgroundColor = '#FADB56';
-//     style.width = 100
-//   } else if (status == "SITE_VISIT") {
-//       //TODO: deicide colors for all
-//       style.backgroundColor = '#FADB56';
-//       style.width = 100
-//   } else if (status == "SITE_VISIT_DONE") {
-//     //TODO: deicide colors for all
-//     style.backgroundColor = '#FADB56';
-//     style.width = 120
-//   } else if (status == "CLOSED") {
-//     //TODO: deicide colors for all
-//     style.backgroundColor = '#FADB56';
-//     style.width = 80
-//   } else if (status == "DEAD") {
-//     //TODO: deicide colors for all
-//     style.backgroundColor = '#FADB56';
-//     style.width = 100
-//   } else {
-//     //TODO: handle other
-//     return null;
-//   }
-//   return(
-//     <Badge size={24} style={style}>
-//         {getStatusText(status)}
-//     </Badge>
-//   );
-// }
 
 export const getCaption = (lead) =>{
   if (lead.status == "NEW") {
