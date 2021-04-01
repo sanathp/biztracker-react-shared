@@ -234,11 +234,13 @@ const middleware = store => dispatch => action => {
             updated = undefined;
           }
 
+          //TODO: currently updated limit from 1000 to 10000, so the search for project will break once
+          //the total leads for a project reaches 10000 (Can reach for epitome)
           API.graphql(graphqlOperation(leadsByAssignedToUpdated, {
             assignedTo: action.filterByAssignedTo,
             updated: updated,
             filter: filter,
-            limit: 1000
+            limit: 10000
           })).then((response) => {
             //console.log("leadsByAssignedToUpdated", response);
             let data = response.data.LeadsByAssignedToUpdated.items;
@@ -308,7 +310,7 @@ const middleware = store => dispatch => action => {
             projectId: action.filterByProjectId,
             updated: updated,
             filter: filter,
-            limit: 1000
+            limit: 10000
           })).then((response) => {
             //console.log("leadsByByProjectIdUpdated", response);
             let data = response.data.LeadsByByProjectIdUpdated.items;
