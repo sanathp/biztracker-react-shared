@@ -312,6 +312,63 @@ export const listReports = /* GraphQL */ `
     }
   }
 `;
+export const getProperty = /* GraphQL */ `
+  query GetProperty($projectId: String!, $itemId: String!) {
+    getProperty(projectId: $projectId, itemId: $itemId) {
+      clientId
+      projectId
+      itemId
+      groupId
+      propertyId
+      propertyType
+      name
+      status
+      assignedTo
+      soldBy
+      created
+      updated
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listPropertys = /* GraphQL */ `
+  query ListPropertys(
+    $projectId: String
+    $itemId: ModelStringKeyConditionInput
+    $filter: ModelPropertyFilterInput
+    $limit: Int
+    $nextToken: String
+    $sortDirection: ModelSortDirection
+  ) {
+    listPropertys(
+      projectId: $projectId
+      itemId: $itemId
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      sortDirection: $sortDirection
+    ) {
+      items {
+        clientId
+        projectId
+        itemId
+        groupId
+        propertyId
+        propertyType
+        name
+        status
+        assignedTo
+        soldBy
+        created
+        updated
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
 export const usersByClientId = /* GraphQL */ `
   query UsersByClientId(
     $clientId: String

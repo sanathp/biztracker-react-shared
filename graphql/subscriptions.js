@@ -130,3 +130,63 @@ export const onDeleteActivity = /* GraphQL */ `
     }
   }
 `;
+export const onCreateProperty = /* GraphQL */ `
+  subscription OnCreateProperty {
+    onCreateProperty {
+      clientId
+      projectId
+      itemId
+      groupId
+      propertyId
+      propertyType
+      name
+      status
+      assignedTo
+      soldBy
+      created
+      updated
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateProperty = /* GraphQL */ `
+  subscription OnUpdateProperty {
+    onUpdateProperty {
+      clientId
+      projectId
+      itemId
+      groupId
+      propertyId
+      propertyType
+      name
+      status
+      assignedTo
+      soldBy
+      created
+      updated
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteProperty = /* GraphQL */ `
+  subscription OnDeleteProperty {
+    onDeleteProperty {
+      clientId
+      projectId
+      itemId
+      groupId
+      propertyId
+      propertyType
+      name
+      status
+      assignedTo
+      soldBy
+      created
+      updated
+      createdAt
+      updatedAt
+    }
+  }
+`;
