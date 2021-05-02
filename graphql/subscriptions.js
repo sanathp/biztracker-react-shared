@@ -141,6 +141,9 @@ export const onCreateProperty = /* GraphQL */ `
       propertyType
       name
       status
+      size
+      dimensions
+      currentPrice
       assignedTo
       soldBy
       created
@@ -161,6 +164,9 @@ export const onUpdateProperty = /* GraphQL */ `
       propertyType
       name
       status
+      size
+      dimensions
+      currentPrice
       assignedTo
       soldBy
       created
@@ -181,6 +187,9 @@ export const onDeleteProperty = /* GraphQL */ `
       propertyType
       name
       status
+      size
+      dimensions
+      currentPrice
       assignedTo
       soldBy
       created
