@@ -140,6 +140,7 @@ export const onCreateProperty = /* GraphQL */ `
       propertyId
       propertyType
       name
+      description
       status
       dimensions
       unitOfArea
@@ -164,6 +165,7 @@ export const onUpdateProperty = /* GraphQL */ `
       propertyId
       propertyType
       name
+      description
       status
       dimensions
       unitOfArea
@@ -188,6 +190,7 @@ export const onDeleteProperty = /* GraphQL */ `
       propertyId
       propertyType
       name
+      description
       status
       dimensions
       unitOfArea

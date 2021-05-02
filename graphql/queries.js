@@ -322,6 +322,7 @@ export const getProperty = /* GraphQL */ `
       propertyId
       propertyType
       name
+      description
       status
       dimensions
       unitOfArea
@@ -361,6 +362,7 @@ export const listPropertys = /* GraphQL */ `
         propertyId
         propertyType
         name
+        description
         status
         dimensions
         unitOfArea
