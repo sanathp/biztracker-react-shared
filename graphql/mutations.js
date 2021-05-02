@@ -162,8 +162,9 @@ export const createProperty = /* GraphQL */ `
       propertyType
       name
       status
-      size
       dimensions
+      unitOfArea
+      size
       currentPrice
       assignedTo
       soldBy
@@ -188,8 +189,9 @@ export const updateProperty = /* GraphQL */ `
       propertyType
       name
       status
-      size
       dimensions
+      unitOfArea
+      size
       currentPrice
       assignedTo
       soldBy
@@ -214,8 +216,9 @@ export const deleteProperty = /* GraphQL */ `
       propertyType
       name
       status
-      size
       dimensions
+      unitOfArea
+      size
       currentPrice
       assignedTo
       soldBy

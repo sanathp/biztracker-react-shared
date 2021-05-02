@@ -323,8 +323,9 @@ export const getProperty = /* GraphQL */ `
       propertyType
       name
       status
-      size
       dimensions
+      unitOfArea
+      size
       currentPrice
       assignedTo
       soldBy
@@ -361,8 +362,9 @@ export const listPropertys = /* GraphQL */ `
         propertyType
         name
         status
-        size
         dimensions
+        unitOfArea
+        size
         currentPrice
         assignedTo
         soldBy
