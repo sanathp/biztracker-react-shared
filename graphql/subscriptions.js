@@ -145,7 +145,9 @@ export const onCreateProperty = /* GraphQL */ `
       dimensions
       unitOfArea
       size
-      currentPrice
+      pricePerUnit
+      premiums
+      planImageURL
       assignedTo
       soldBy
       created
@@ -170,7 +172,9 @@ export const onUpdateProperty = /* GraphQL */ `
       dimensions
       unitOfArea
       size
-      currentPrice
+      pricePerUnit
+      premiums
+      planImageURL
       assignedTo
       soldBy
       created
@@ -195,11 +199,55 @@ export const onDeleteProperty = /* GraphQL */ `
       dimensions
       unitOfArea
       size
-      currentPrice
+      pricePerUnit
+      premiums
+      planImageURL
       assignedTo
       soldBy
       created
       updated
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onCreateStatusChangeRequest = /* GraphQL */ `
+  subscription OnCreateStatusChangeRequest {
+    onCreateStatusChangeRequest {
+      clientId
+      projectId
+      requestId
+      propertyItemId
+      type
+      requestedBy
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateStatusChangeRequest = /* GraphQL */ `
+  subscription OnUpdateStatusChangeRequest {
+    onUpdateStatusChangeRequest {
+      clientId
+      projectId
+      requestId
+      propertyItemId
+      type
+      requestedBy
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteStatusChangeRequest = /* GraphQL */ `
+  subscription OnDeleteStatusChangeRequest {
+    onDeleteStatusChangeRequest {
+      clientId
+      projectId
+      requestId
+      propertyItemId
+      type
+      requestedBy
       createdAt
       updatedAt
     }

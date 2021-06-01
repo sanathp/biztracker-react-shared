@@ -166,7 +166,9 @@ export const createProperty = /* GraphQL */ `
       dimensions
       unitOfArea
       size
-      currentPrice
+      pricePerUnit
+      premiums
+      planImageURL
       assignedTo
       soldBy
       created
@@ -194,7 +196,9 @@ export const updateProperty = /* GraphQL */ `
       dimensions
       unitOfArea
       size
-      currentPrice
+      pricePerUnit
+      premiums
+      planImageURL
       assignedTo
       soldBy
       created
@@ -222,11 +226,64 @@ export const deleteProperty = /* GraphQL */ `
       dimensions
       unitOfArea
       size
-      currentPrice
+      pricePerUnit
+      premiums
+      planImageURL
       assignedTo
       soldBy
       created
       updated
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const createStatusChangeRequest = /* GraphQL */ `
+  mutation CreateStatusChangeRequest(
+    $input: CreateStatusChangeRequestInput!
+    $condition: ModelStatusChangeRequestConditionInput
+  ) {
+    createStatusChangeRequest(input: $input, condition: $condition) {
+      clientId
+      projectId
+      requestId
+      propertyItemId
+      type
+      requestedBy
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateStatusChangeRequest = /* GraphQL */ `
+  mutation UpdateStatusChangeRequest(
+    $input: UpdateStatusChangeRequestInput!
+    $condition: ModelStatusChangeRequestConditionInput
+  ) {
+    updateStatusChangeRequest(input: $input, condition: $condition) {
+      clientId
+      projectId
+      requestId
+      propertyItemId
+      type
+      requestedBy
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteStatusChangeRequest = /* GraphQL */ `
+  mutation DeleteStatusChangeRequest(
+    $input: DeleteStatusChangeRequestInput!
+    $condition: ModelStatusChangeRequestConditionInput
+  ) {
+    deleteStatusChangeRequest(input: $input, condition: $condition) {
+      clientId
+      projectId
+      requestId
+      propertyItemId
+      type
+      requestedBy
       createdAt
       updatedAt
     }

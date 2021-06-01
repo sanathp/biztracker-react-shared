@@ -55,6 +55,7 @@ export const getUser = /* GraphQL */ `
       isAdmin
       isMusugu
       name
+      role
       expoPushToken
       projectId
       created
@@ -86,6 +87,7 @@ export const listUsers = /* GraphQL */ `
         isAdmin
         isMusugu
         name
+        role
         expoPushToken
         projectId
         created
@@ -327,7 +329,9 @@ export const getProperty = /* GraphQL */ `
       dimensions
       unitOfArea
       size
-      currentPrice
+      pricePerUnit
+      premiums
+      planImageURL
       assignedTo
       soldBy
       created
@@ -367,11 +371,58 @@ export const listPropertys = /* GraphQL */ `
         dimensions
         unitOfArea
         size
-        currentPrice
+        pricePerUnit
+        premiums
+        planImageURL
         assignedTo
         soldBy
         created
         updated
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getStatusChangeRequest = /* GraphQL */ `
+  query GetStatusChangeRequest($projectId: String!, $requestId: ID!) {
+    getStatusChangeRequest(projectId: $projectId, requestId: $requestId) {
+      clientId
+      projectId
+      requestId
+      propertyItemId
+      type
+      requestedBy
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listStatusChangeRequests = /* GraphQL */ `
+  query ListStatusChangeRequests(
+    $projectId: String
+    $requestId: ModelIDKeyConditionInput
+    $filter: ModelStatusChangeRequestFilterInput
+    $limit: Int
+    $nextToken: String
+    $sortDirection: ModelSortDirection
+  ) {
+    listStatusChangeRequests(
+      projectId: $projectId
+      requestId: $requestId
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      sortDirection: $sortDirection
+    ) {
+      items {
+        clientId
+        projectId
+        requestId
+        propertyItemId
+        type
+        requestedBy
         createdAt
         updatedAt
       }
@@ -403,6 +454,7 @@ export const usersByClientId = /* GraphQL */ `
         isAdmin
         isMusugu
         name
+        role
         expoPushToken
         projectId
         created
