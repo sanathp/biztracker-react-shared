@@ -156,11 +156,10 @@ export const createProperty = /* GraphQL */ `
     createProperty(input: $input, condition: $condition) {
       clientId
       projectId
-      itemId
-      groupId
       propertyId
-      propertyType
+      groupId
       name
+      propertyType
       description
       status
       dimensions
@@ -186,11 +185,10 @@ export const updateProperty = /* GraphQL */ `
     updateProperty(input: $input, condition: $condition) {
       clientId
       projectId
-      itemId
-      groupId
       propertyId
-      propertyType
+      groupId
       name
+      propertyType
       description
       status
       dimensions
@@ -216,11 +214,10 @@ export const deleteProperty = /* GraphQL */ `
     deleteProperty(input: $input, condition: $condition) {
       clientId
       projectId
-      itemId
-      groupId
       propertyId
-      propertyType
+      groupId
       name
+      propertyType
       description
       status
       dimensions
@@ -247,9 +244,12 @@ export const createStatusChangeRequest = /* GraphQL */ `
       clientId
       projectId
       requestId
-      propertyItemId
+      propertyId
       type
       requestedBy
+      status
+      authorizedBy
+      comment
       createdAt
       updatedAt
     }
@@ -264,9 +264,12 @@ export const updateStatusChangeRequest = /* GraphQL */ `
       clientId
       projectId
       requestId
-      propertyItemId
+      propertyId
       type
       requestedBy
+      status
+      authorizedBy
+      comment
       createdAt
       updatedAt
     }
@@ -281,9 +284,285 @@ export const deleteStatusChangeRequest = /* GraphQL */ `
       clientId
       projectId
       requestId
-      propertyItemId
+      propertyId
       type
       requestedBy
+      status
+      authorizedBy
+      comment
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const createSale = /* GraphQL */ `
+  mutation CreateSale(
+    $input: CreateSaleInput!
+    $condition: ModelSaleConditionInput
+  ) {
+    createSale(input: $input, condition: $condition) {
+      clientId
+      projectId
+      saleId
+      propertyId
+      customerId
+      customer {
+        clientId
+        projectId
+        customerId
+        name
+        phoneNumber
+        email
+        propertyId
+        saleId
+        attachments {
+          fileName
+          fileType
+          fileURL
+          created
+          uploadedBy
+        }
+        createdAt
+        updatedAt
+      }
+      property {
+        clientId
+        projectId
+        propertyId
+        groupId
+        name
+        propertyType
+        description
+        status
+        dimensions
+        unitOfArea
+        size
+        pricePerUnit
+        premiums
+        planImageURL
+        assignedTo
+        soldBy
+        created
+        updated
+        createdAt
+        updatedAt
+      }
+      status
+      attachments {
+        fileName
+        fileType
+        fileURL
+        created
+        uploadedBy
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateSale = /* GraphQL */ `
+  mutation UpdateSale(
+    $input: UpdateSaleInput!
+    $condition: ModelSaleConditionInput
+  ) {
+    updateSale(input: $input, condition: $condition) {
+      clientId
+      projectId
+      saleId
+      propertyId
+      customerId
+      customer {
+        clientId
+        projectId
+        customerId
+        name
+        phoneNumber
+        email
+        propertyId
+        saleId
+        attachments {
+          fileName
+          fileType
+          fileURL
+          created
+          uploadedBy
+        }
+        createdAt
+        updatedAt
+      }
+      property {
+        clientId
+        projectId
+        propertyId
+        groupId
+        name
+        propertyType
+        description
+        status
+        dimensions
+        unitOfArea
+        size
+        pricePerUnit
+        premiums
+        planImageURL
+        assignedTo
+        soldBy
+        created
+        updated
+        createdAt
+        updatedAt
+      }
+      status
+      attachments {
+        fileName
+        fileType
+        fileURL
+        created
+        uploadedBy
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteSale = /* GraphQL */ `
+  mutation DeleteSale(
+    $input: DeleteSaleInput!
+    $condition: ModelSaleConditionInput
+  ) {
+    deleteSale(input: $input, condition: $condition) {
+      clientId
+      projectId
+      saleId
+      propertyId
+      customerId
+      customer {
+        clientId
+        projectId
+        customerId
+        name
+        phoneNumber
+        email
+        propertyId
+        saleId
+        attachments {
+          fileName
+          fileType
+          fileURL
+          created
+          uploadedBy
+        }
+        createdAt
+        updatedAt
+      }
+      property {
+        clientId
+        projectId
+        propertyId
+        groupId
+        name
+        propertyType
+        description
+        status
+        dimensions
+        unitOfArea
+        size
+        pricePerUnit
+        premiums
+        planImageURL
+        assignedTo
+        soldBy
+        created
+        updated
+        createdAt
+        updatedAt
+      }
+      status
+      attachments {
+        fileName
+        fileType
+        fileURL
+        created
+        uploadedBy
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const createCustomer = /* GraphQL */ `
+  mutation CreateCustomer(
+    $input: CreateCustomerInput!
+    $condition: ModelCustomerConditionInput
+  ) {
+    createCustomer(input: $input, condition: $condition) {
+      clientId
+      projectId
+      customerId
+      name
+      phoneNumber
+      email
+      propertyId
+      saleId
+      attachments {
+        fileName
+        fileType
+        fileURL
+        created
+        uploadedBy
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateCustomer = /* GraphQL */ `
+  mutation UpdateCustomer(
+    $input: UpdateCustomerInput!
+    $condition: ModelCustomerConditionInput
+  ) {
+    updateCustomer(input: $input, condition: $condition) {
+      clientId
+      projectId
+      customerId
+      name
+      phoneNumber
+      email
+      propertyId
+      saleId
+      attachments {
+        fileName
+        fileType
+        fileURL
+        created
+        uploadedBy
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteCustomer = /* GraphQL */ `
+  mutation DeleteCustomer(
+    $input: DeleteCustomerInput!
+    $condition: ModelCustomerConditionInput
+  ) {
+    deleteCustomer(input: $input, condition: $condition) {
+      clientId
+      projectId
+      customerId
+      name
+      phoneNumber
+      email
+      propertyId
+      saleId
+      attachments {
+        fileName
+        fileType
+        fileURL
+        created
+        uploadedBy
+      }
       createdAt
       updatedAt
     }

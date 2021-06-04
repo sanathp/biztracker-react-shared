@@ -135,11 +135,10 @@ export const onCreateProperty = /* GraphQL */ `
     onCreateProperty {
       clientId
       projectId
-      itemId
-      groupId
       propertyId
-      propertyType
+      groupId
       name
+      propertyType
       description
       status
       dimensions
@@ -162,11 +161,10 @@ export const onUpdateProperty = /* GraphQL */ `
     onUpdateProperty {
       clientId
       projectId
-      itemId
-      groupId
       propertyId
-      propertyType
+      groupId
       name
+      propertyType
       description
       status
       dimensions
@@ -189,11 +187,10 @@ export const onDeleteProperty = /* GraphQL */ `
     onDeleteProperty {
       clientId
       projectId
-      itemId
-      groupId
       propertyId
-      propertyType
+      groupId
       name
+      propertyType
       description
       status
       dimensions
@@ -217,9 +214,12 @@ export const onCreateStatusChangeRequest = /* GraphQL */ `
       clientId
       projectId
       requestId
-      propertyItemId
+      propertyId
       type
       requestedBy
+      status
+      authorizedBy
+      comment
       createdAt
       updatedAt
     }
@@ -231,9 +231,12 @@ export const onUpdateStatusChangeRequest = /* GraphQL */ `
       clientId
       projectId
       requestId
-      propertyItemId
+      propertyId
       type
       requestedBy
+      status
+      authorizedBy
+      comment
       createdAt
       updatedAt
     }
@@ -245,9 +248,267 @@ export const onDeleteStatusChangeRequest = /* GraphQL */ `
       clientId
       projectId
       requestId
-      propertyItemId
+      propertyId
       type
       requestedBy
+      status
+      authorizedBy
+      comment
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onCreateSale = /* GraphQL */ `
+  subscription OnCreateSale {
+    onCreateSale {
+      clientId
+      projectId
+      saleId
+      propertyId
+      customerId
+      customer {
+        clientId
+        projectId
+        customerId
+        name
+        phoneNumber
+        email
+        propertyId
+        saleId
+        attachments {
+          fileName
+          fileType
+          fileURL
+          created
+          uploadedBy
+        }
+        createdAt
+        updatedAt
+      }
+      property {
+        clientId
+        projectId
+        propertyId
+        groupId
+        name
+        propertyType
+        description
+        status
+        dimensions
+        unitOfArea
+        size
+        pricePerUnit
+        premiums
+        planImageURL
+        assignedTo
+        soldBy
+        created
+        updated
+        createdAt
+        updatedAt
+      }
+      status
+      attachments {
+        fileName
+        fileType
+        fileURL
+        created
+        uploadedBy
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateSale = /* GraphQL */ `
+  subscription OnUpdateSale {
+    onUpdateSale {
+      clientId
+      projectId
+      saleId
+      propertyId
+      customerId
+      customer {
+        clientId
+        projectId
+        customerId
+        name
+        phoneNumber
+        email
+        propertyId
+        saleId
+        attachments {
+          fileName
+          fileType
+          fileURL
+          created
+          uploadedBy
+        }
+        createdAt
+        updatedAt
+      }
+      property {
+        clientId
+        projectId
+        propertyId
+        groupId
+        name
+        propertyType
+        description
+        status
+        dimensions
+        unitOfArea
+        size
+        pricePerUnit
+        premiums
+        planImageURL
+        assignedTo
+        soldBy
+        created
+        updated
+        createdAt
+        updatedAt
+      }
+      status
+      attachments {
+        fileName
+        fileType
+        fileURL
+        created
+        uploadedBy
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteSale = /* GraphQL */ `
+  subscription OnDeleteSale {
+    onDeleteSale {
+      clientId
+      projectId
+      saleId
+      propertyId
+      customerId
+      customer {
+        clientId
+        projectId
+        customerId
+        name
+        phoneNumber
+        email
+        propertyId
+        saleId
+        attachments {
+          fileName
+          fileType
+          fileURL
+          created
+          uploadedBy
+        }
+        createdAt
+        updatedAt
+      }
+      property {
+        clientId
+        projectId
+        propertyId
+        groupId
+        name
+        propertyType
+        description
+        status
+        dimensions
+        unitOfArea
+        size
+        pricePerUnit
+        premiums
+        planImageURL
+        assignedTo
+        soldBy
+        created
+        updated
+        createdAt
+        updatedAt
+      }
+      status
+      attachments {
+        fileName
+        fileType
+        fileURL
+        created
+        uploadedBy
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onCreateCustomer = /* GraphQL */ `
+  subscription OnCreateCustomer {
+    onCreateCustomer {
+      clientId
+      projectId
+      customerId
+      name
+      phoneNumber
+      email
+      propertyId
+      saleId
+      attachments {
+        fileName
+        fileType
+        fileURL
+        created
+        uploadedBy
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateCustomer = /* GraphQL */ `
+  subscription OnUpdateCustomer {
+    onUpdateCustomer {
+      clientId
+      projectId
+      customerId
+      name
+      phoneNumber
+      email
+      propertyId
+      saleId
+      attachments {
+        fileName
+        fileType
+        fileURL
+        created
+        uploadedBy
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteCustomer = /* GraphQL */ `
+  subscription OnDeleteCustomer {
+    onDeleteCustomer {
+      clientId
+      projectId
+      customerId
+      name
+      phoneNumber
+      email
+      propertyId
+      saleId
+      attachments {
+        fileName
+        fileType
+        fileURL
+        created
+        uploadedBy
+      }
       createdAt
       updatedAt
     }

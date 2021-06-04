@@ -315,15 +315,14 @@ export const listReports = /* GraphQL */ `
   }
 `;
 export const getProperty = /* GraphQL */ `
-  query GetProperty($projectId: String!, $itemId: String!) {
-    getProperty(projectId: $projectId, itemId: $itemId) {
+  query GetProperty($projectId: String!, $propertyId: String!) {
+    getProperty(projectId: $projectId, propertyId: $propertyId) {
       clientId
       projectId
-      itemId
-      groupId
       propertyId
-      propertyType
+      groupId
       name
+      propertyType
       description
       status
       dimensions
@@ -344,7 +343,7 @@ export const getProperty = /* GraphQL */ `
 export const listPropertys = /* GraphQL */ `
   query ListPropertys(
     $projectId: String
-    $itemId: ModelStringKeyConditionInput
+    $propertyId: ModelStringKeyConditionInput
     $filter: ModelPropertyFilterInput
     $limit: Int
     $nextToken: String
@@ -352,7 +351,7 @@ export const listPropertys = /* GraphQL */ `
   ) {
     listPropertys(
       projectId: $projectId
-      itemId: $itemId
+      propertyId: $propertyId
       filter: $filter
       limit: $limit
       nextToken: $nextToken
@@ -361,11 +360,10 @@ export const listPropertys = /* GraphQL */ `
       items {
         clientId
         projectId
-        itemId
-        groupId
         propertyId
-        propertyType
+        groupId
         name
+        propertyType
         description
         status
         dimensions
@@ -391,9 +389,12 @@ export const getStatusChangeRequest = /* GraphQL */ `
       clientId
       projectId
       requestId
-      propertyItemId
+      propertyId
       type
       requestedBy
+      status
+      authorizedBy
+      comment
       createdAt
       updatedAt
     }
@@ -420,9 +421,209 @@ export const listStatusChangeRequests = /* GraphQL */ `
         clientId
         projectId
         requestId
-        propertyItemId
+        propertyId
         type
         requestedBy
+        status
+        authorizedBy
+        comment
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getSale = /* GraphQL */ `
+  query GetSale($projectId: String!, $saleId: String!) {
+    getSale(projectId: $projectId, saleId: $saleId) {
+      clientId
+      projectId
+      saleId
+      propertyId
+      customerId
+      customer {
+        clientId
+        projectId
+        customerId
+        name
+        phoneNumber
+        email
+        propertyId
+        saleId
+        attachments {
+          fileName
+          fileType
+          fileURL
+          created
+          uploadedBy
+        }
+        createdAt
+        updatedAt
+      }
+      property {
+        clientId
+        projectId
+        propertyId
+        groupId
+        name
+        propertyType
+        description
+        status
+        dimensions
+        unitOfArea
+        size
+        pricePerUnit
+        premiums
+        planImageURL
+        assignedTo
+        soldBy
+        created
+        updated
+        createdAt
+        updatedAt
+      }
+      status
+      attachments {
+        fileName
+        fileType
+        fileURL
+        created
+        uploadedBy
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listSales = /* GraphQL */ `
+  query ListSales(
+    $projectId: String
+    $saleId: ModelStringKeyConditionInput
+    $filter: ModelSaleFilterInput
+    $limit: Int
+    $nextToken: String
+    $sortDirection: ModelSortDirection
+  ) {
+    listSales(
+      projectId: $projectId
+      saleId: $saleId
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      sortDirection: $sortDirection
+    ) {
+      items {
+        clientId
+        projectId
+        saleId
+        propertyId
+        customerId
+        customer {
+          clientId
+          projectId
+          customerId
+          name
+          phoneNumber
+          email
+          propertyId
+          saleId
+          createdAt
+          updatedAt
+        }
+        property {
+          clientId
+          projectId
+          propertyId
+          groupId
+          name
+          propertyType
+          description
+          status
+          dimensions
+          unitOfArea
+          size
+          pricePerUnit
+          premiums
+          planImageURL
+          assignedTo
+          soldBy
+          created
+          updated
+          createdAt
+          updatedAt
+        }
+        status
+        attachments {
+          fileName
+          fileType
+          fileURL
+          created
+          uploadedBy
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getCustomer = /* GraphQL */ `
+  query GetCustomer($projectId: String!, $customerId: String!) {
+    getCustomer(projectId: $projectId, customerId: $customerId) {
+      clientId
+      projectId
+      customerId
+      name
+      phoneNumber
+      email
+      propertyId
+      saleId
+      attachments {
+        fileName
+        fileType
+        fileURL
+        created
+        uploadedBy
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listCustomers = /* GraphQL */ `
+  query ListCustomers(
+    $projectId: String
+    $customerId: ModelStringKeyConditionInput
+    $filter: ModelCustomerFilterInput
+    $limit: Int
+    $nextToken: String
+    $sortDirection: ModelSortDirection
+  ) {
+    listCustomers(
+      projectId: $projectId
+      customerId: $customerId
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      sortDirection: $sortDirection
+    ) {
+      items {
+        clientId
+        projectId
+        customerId
+        name
+        phoneNumber
+        email
+        propertyId
+        saleId
+        attachments {
+          fileName
+          fileType
+          fileURL
+          created
+          uploadedBy
+        }
         createdAt
         updatedAt
       }
