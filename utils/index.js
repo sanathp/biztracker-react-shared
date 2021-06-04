@@ -128,3 +128,36 @@ export const removeWhiteSpaces = (str) => {
   }
   return str;
 }
+
+export const getUserNameFromUserList = (usersList, userId) => {
+  for (const item of usersList) {
+   if(userId == item.userId){
+     return item.name;
+   }
+  }
+}
+
+// export const getRequestTypeText = (requestType) => {
+//   if(requestType === 'REQUEST_TO_HOLD'){
+//     return 'Request to Hold';
+//   }
+//   else{
+//     return 'NA'
+//   }
+// }
+
+// // REQUEST_TO_BOOK
+
+export const getRequestTypeText = (requestType) => {
+  switch (requestType) {
+    case 'REQUEST_TO_HOLD' :
+        return 'Request to Hold';
+    case 'REQUEST_TO_BOOK' :
+        return 'Request to Book';
+    case 'ALL':
+      return 'All';
+    default:
+      //TODO: change it to null and test
+        return 'null';
+  }
+};
