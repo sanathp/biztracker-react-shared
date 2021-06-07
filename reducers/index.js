@@ -5,6 +5,7 @@ import users from "./users";
 import userInfo from "./userInfo";
 import projects from "./projects";
 import properties from "./properties";
+import requests from "./requests";
 
 const rootReducer = combineReducers({
   tasks,
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
   users,
   userInfo,
   projects,
-  properties
+  properties,
+  requests
 });
 
 export default rootReducer;
