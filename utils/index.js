@@ -137,6 +137,15 @@ export const getUserNameFromUserList = (usersList, userId) => {
   }
 }
 
+export const getUserFromUserList = (usersList, userId) => {
+  for (const item of usersList) {
+   if(userId == item.userId){
+     return item;
+   }
+  }
+}
+
+
 // export const getRequestTypeText = (requestType) => {
 //   if(requestType === 'REQUEST_TO_HOLD'){
 //     return 'Request to Hold';
