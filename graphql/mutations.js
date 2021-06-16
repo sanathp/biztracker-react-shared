@@ -248,8 +248,11 @@ export const createStatusChangeRequest = /* GraphQL */ `
       type
       requestedBy
       status
+      approvedBy
+      rejectedBy
       authorizedBy
-      comment
+      requestComment
+      rejectComment
       createdAt
       updatedAt
     }
@@ -268,8 +271,11 @@ export const updateStatusChangeRequest = /* GraphQL */ `
       type
       requestedBy
       status
+      approvedBy
+      rejectedBy
       authorizedBy
-      comment
+      requestComment
+      rejectComment
       createdAt
       updatedAt
     }
@@ -288,8 +294,65 @@ export const deleteStatusChangeRequest = /* GraphQL */ `
       type
       requestedBy
       status
+      approvedBy
+      rejectedBy
       authorizedBy
-      comment
+      requestComment
+      rejectComment
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const createRequestActivity = /* GraphQL */ `
+  mutation CreateRequestActivity(
+    $input: CreateRequestActivityInput!
+    $condition: ModelRequestActivityConditionInput
+  ) {
+    createRequestActivity(input: $input, condition: $condition) {
+      projectId
+      clientId
+      requestId
+      created
+      type
+      description
+      activityBy
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateRequestActivity = /* GraphQL */ `
+  mutation UpdateRequestActivity(
+    $input: UpdateRequestActivityInput!
+    $condition: ModelRequestActivityConditionInput
+  ) {
+    updateRequestActivity(input: $input, condition: $condition) {
+      projectId
+      clientId
+      requestId
+      created
+      type
+      description
+      activityBy
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteRequestActivity = /* GraphQL */ `
+  mutation DeleteRequestActivity(
+    $input: DeleteRequestActivityInput!
+    $condition: ModelRequestActivityConditionInput
+  ) {
+    deleteRequestActivity(input: $input, condition: $condition) {
+      projectId
+      clientId
+      requestId
+      created
+      type
+      description
+      activityBy
       createdAt
       updatedAt
     }

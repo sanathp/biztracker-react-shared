@@ -393,8 +393,11 @@ export const getStatusChangeRequest = /* GraphQL */ `
       type
       requestedBy
       status
+      approvedBy
+      rejectedBy
       authorizedBy
-      comment
+      requestComment
+      rejectComment
       createdAt
       updatedAt
     }
@@ -425,8 +428,58 @@ export const listStatusChangeRequests = /* GraphQL */ `
         type
         requestedBy
         status
+        approvedBy
+        rejectedBy
         authorizedBy
-        comment
+        requestComment
+        rejectComment
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getRequestActivity = /* GraphQL */ `
+  query GetRequestActivity($requestId: String!, $created: Int!) {
+    getRequestActivity(requestId: $requestId, created: $created) {
+      projectId
+      clientId
+      requestId
+      created
+      type
+      description
+      activityBy
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listRequestActivitys = /* GraphQL */ `
+  query ListRequestActivitys(
+    $requestId: String
+    $created: ModelIntKeyConditionInput
+    $filter: ModelRequestActivityFilterInput
+    $limit: Int
+    $nextToken: String
+    $sortDirection: ModelSortDirection
+  ) {
+    listRequestActivitys(
+      requestId: $requestId
+      created: $created
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      sortDirection: $sortDirection
+    ) {
+      items {
+        projectId
+        clientId
+        requestId
+        created
+        type
+        description
+        activityBy
         createdAt
         updatedAt
       }

@@ -218,8 +218,11 @@ export const onCreateStatusChangeRequest = /* GraphQL */ `
       type
       requestedBy
       status
+      approvedBy
+      rejectedBy
       authorizedBy
-      comment
+      requestComment
+      rejectComment
       createdAt
       updatedAt
     }
@@ -235,8 +238,11 @@ export const onUpdateStatusChangeRequest = /* GraphQL */ `
       type
       requestedBy
       status
+      approvedBy
+      rejectedBy
       authorizedBy
-      comment
+      requestComment
+      rejectComment
       createdAt
       updatedAt
     }
@@ -252,8 +258,56 @@ export const onDeleteStatusChangeRequest = /* GraphQL */ `
       type
       requestedBy
       status
+      approvedBy
+      rejectedBy
       authorizedBy
-      comment
+      requestComment
+      rejectComment
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onCreateRequestActivity = /* GraphQL */ `
+  subscription OnCreateRequestActivity {
+    onCreateRequestActivity {
+      projectId
+      clientId
+      requestId
+      created
+      type
+      description
+      activityBy
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateRequestActivity = /* GraphQL */ `
+  subscription OnUpdateRequestActivity {
+    onUpdateRequestActivity {
+      projectId
+      clientId
+      requestId
+      created
+      type
+      description
+      activityBy
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteRequestActivity = /* GraphQL */ `
+  subscription OnDeleteRequestActivity {
+    onDeleteRequestActivity {
+      projectId
+      clientId
+      requestId
+      created
+      type
+      description
+      activityBy
       createdAt
       updatedAt
     }
