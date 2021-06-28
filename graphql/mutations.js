@@ -310,6 +310,7 @@ export const createRequestActivity = /* GraphQL */ `
     $condition: ModelRequestActivityConditionInput
   ) {
     createRequestActivity(input: $input, condition: $condition) {
+      propertyId
       projectId
       clientId
       requestId
@@ -328,6 +329,7 @@ export const updateRequestActivity = /* GraphQL */ `
     $condition: ModelRequestActivityConditionInput
   ) {
     updateRequestActivity(input: $input, condition: $condition) {
+      propertyId
       projectId
       clientId
       requestId
@@ -346,6 +348,7 @@ export const deleteRequestActivity = /* GraphQL */ `
     $condition: ModelRequestActivityConditionInput
   ) {
     deleteRequestActivity(input: $input, condition: $condition) {
+      propertyId
       projectId
       clientId
       requestId

@@ -441,8 +441,9 @@ export const listStatusChangeRequests = /* GraphQL */ `
   }
 `;
 export const getRequestActivity = /* GraphQL */ `
-  query GetRequestActivity($requestId: String!, $created: Int!) {
-    getRequestActivity(requestId: $requestId, created: $created) {
+  query GetRequestActivity($requestId: String!) {
+    getRequestActivity(requestId: $requestId) {
+      propertyId
       projectId
       clientId
       requestId
@@ -458,7 +459,6 @@ export const getRequestActivity = /* GraphQL */ `
 export const listRequestActivitys = /* GraphQL */ `
   query ListRequestActivitys(
     $requestId: String
-    $created: ModelIntKeyConditionInput
     $filter: ModelRequestActivityFilterInput
     $limit: Int
     $nextToken: String
@@ -466,13 +466,13 @@ export const listRequestActivitys = /* GraphQL */ `
   ) {
     listRequestActivitys(
       requestId: $requestId
-      created: $created
       filter: $filter
       limit: $limit
       nextToken: $nextToken
       sortDirection: $sortDirection
     ) {
       items {
+        propertyId
         projectId
         clientId
         requestId
@@ -1086,24 +1086,25 @@ export const activitiesByClientId = /* GraphQL */ `
     }
   }
 `;
-export const requestActivityByProjectId = /* GraphQL */ `
-  query RequestActivityByProjectId(
+export const requestActivityByPropertyId = /* GraphQL */ `
+  query RequestActivityByPropertyId(
     $projectId: String
-    $created: ModelIntKeyConditionInput
+    $propertyId: ModelStringKeyConditionInput
     $sortDirection: ModelSortDirection
     $filter: ModelRequestActivityFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    RequestActivityByProjectId(
+    RequestActivityByPropertyId(
       projectId: $projectId
-      created: $created
+      propertyId: $propertyId
       sortDirection: $sortDirection
       filter: $filter
       limit: $limit
       nextToken: $nextToken
     ) {
       items {
+        propertyId
         projectId
         clientId
         requestId

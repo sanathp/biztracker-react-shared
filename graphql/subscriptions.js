@@ -271,6 +271,7 @@ export const onDeleteStatusChangeRequest = /* GraphQL */ `
 export const onCreateRequestActivity = /* GraphQL */ `
   subscription OnCreateRequestActivity {
     onCreateRequestActivity {
+      propertyId
       projectId
       clientId
       requestId
@@ -286,6 +287,7 @@ export const onCreateRequestActivity = /* GraphQL */ `
 export const onUpdateRequestActivity = /* GraphQL */ `
   subscription OnUpdateRequestActivity {
     onUpdateRequestActivity {
+      propertyId
       projectId
       clientId
       requestId
@@ -301,6 +303,7 @@ export const onUpdateRequestActivity = /* GraphQL */ `
 export const onDeleteRequestActivity = /* GraphQL */ `
   subscription OnDeleteRequestActivity {
     onDeleteRequestActivity {
+      propertyId
       projectId
       clientId
       requestId
