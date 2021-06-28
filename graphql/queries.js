@@ -1086,3 +1086,35 @@ export const activitiesByClientId = /* GraphQL */ `
     }
   }
 `;
+export const requestActivityByProjectId = /* GraphQL */ `
+  query RequestActivityByProjectId(
+    $projectId: String
+    $created: ModelIntKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelRequestActivityFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    RequestActivityByProjectId(
+      projectId: $projectId
+      created: $created
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        projectId
+        clientId
+        requestId
+        created
+        type
+        description
+        activityBy
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
