@@ -71,6 +71,10 @@ export const uuidv4 = () => {
   });
 };
 
+export const getTimestampInSecs = () => {
+  return Date.now()/1000;
+}
+
 export const isValidPhoneNumber = (phoneNumber) => {
   if (!phoneNumber) {
     return false;
