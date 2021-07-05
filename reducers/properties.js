@@ -48,7 +48,7 @@ export default function properties(state = initialState, action) {
     case types.UPDATE_PROPERTY:
       //update property
       let newProperties = state.data.map((property, index) => {
-        if (property.itemId === action.itemId) {
+        if (property.propertyId === action.propertyId) {
           return action.data;
         }
         return property;

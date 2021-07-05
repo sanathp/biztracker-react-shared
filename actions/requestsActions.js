@@ -21,3 +21,10 @@ export const updateRequestAction = (requestId, data) => {
     data: data
   };
 };
+
+export const deleteRequestAction = (requestId) => {
+  return {
+    type: types.DELETE_REQUEST,
+    requestId: requestId
+  };
+};

@@ -43,10 +43,10 @@ export const addPropertyAction = (data) => {
   };
 };
 
-export const updatePropertyAction = (itemId, data) => {
+export const updatePropertyAction = (propertyId, data) => {
   return {
     type: types.UPDATE_PROPERTY,
-    itemId: itemId,
+    propertyId: propertyId,
     data: data
   };
 };

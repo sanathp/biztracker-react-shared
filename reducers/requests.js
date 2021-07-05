@@ -33,6 +33,22 @@ export default function requests(state = initialState, action) {
           return request;
         }),
       };
+    case types.DELETE_REQUEST:
+      console.log("Request data ",action, state.data.filter((request, index) => {
+        if (request.requestId === action.requestId) {
+          return false;
+        }
+        return true;
+      }))
+      return {
+          ...state,
+          data: state.data.filter((request, index) => {
+            if (request.requestId === action.requestId) {
+              return false;
+            }
+            return true;
+          })
+        };
     default:
       return state;
   }
