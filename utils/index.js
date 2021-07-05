@@ -72,7 +72,7 @@ export const uuidv4 = () => {
 };
 
 export const getTimestampInSecs = () => {
-  return Date.now()/1000;
+  return Math.floor(Date.now() / 1000)
 }
 
 export const isValidPhoneNumber = (phoneNumber) => {
