@@ -441,8 +441,8 @@ export const listStatusChangeRequests = /* GraphQL */ `
   }
 `;
 export const getRequestActivity = /* GraphQL */ `
-  query GetRequestActivity($requestId: String!) {
-    getRequestActivity(requestId: $requestId) {
+  query GetRequestActivity($requestId: String!, $created: Int!) {
+    getRequestActivity(requestId: $requestId, created: $created) {
       propertyId
       projectId
       clientId
@@ -459,6 +459,7 @@ export const getRequestActivity = /* GraphQL */ `
 export const listRequestActivitys = /* GraphQL */ `
   query ListRequestActivitys(
     $requestId: String
+    $created: ModelIntKeyConditionInput
     $filter: ModelRequestActivityFilterInput
     $limit: Int
     $nextToken: String
@@ -466,6 +467,7 @@ export const listRequestActivitys = /* GraphQL */ `
   ) {
     listRequestActivitys(
       requestId: $requestId
+      created: $created
       filter: $filter
       limit: $limit
       nextToken: $nextToken
